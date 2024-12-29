@@ -3401,8 +3401,8 @@ def chatbot(input_text):
     emotion = analyze_sentiment(input_text)
     for intent in intents:
    
-    if intent['tag'] == tag:  # Indented correctly
-        response = random.choice(intent['responses'])
+        if intent['tag'] == tag:  # Indented correctly
+            response = random.choice(intent['responses'])
             if emotion == "Positive":
                 return f"😊 {response} (Detected Emotion: {emotion})"
             elif emotion == "Negative":
