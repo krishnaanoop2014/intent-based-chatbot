@@ -3409,8 +3409,7 @@ def chatbot(input_text):
                 return f"😟 {response} (Detected Emotion: {emotion})"
             else:
                 return f"😐 {response} (Detected Emotion: {emotion})"
-     return "🤔 I'm not sure how to respond to that. (Emotion: Neutral)"
-
+     
 
 # Streamlit App
 def main():
