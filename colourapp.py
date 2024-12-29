@@ -3400,10 +3400,17 @@ def chatbot(input_text):
     tag = clf.predict(input_text_vec)[0]
     emotion = analyze_sentiment(input_text)
     for intent in intents:
+        for intent in intents:
         if intent['tag'] == tag:
             response = random.choice(intent['responses'])
-            return f"{response} (Detected Emotion: {emotion})"
-    return "I'm not sure how to respond to that. (Emotion: Neutral)"
+            if emotion == "Positive":
+                return f"😊 {response} (Detected Emotion: {emotion})"
+            elif emotion == "Negative":
+                return f"😟 {response} (Detected Emotion: {emotion})"
+            else:
+                return f"😐 {response} (Detected Emotion: {emotion})"
+    return "🤔 I'm not sure how to respond to that. (Emotion: Neutral)"
+
 
 # Streamlit App
 def main():
@@ -3434,8 +3441,7 @@ def main():
 
         if user_input:
             response = chatbot(user_input)
-            # Display user message
-            st.markdown(f"<p style='background-color:#DFF6DD; color:#1B5E20; padding:10px; border-radius:10px;'>You: {user_input}</p>", unsafe_allow_html=True)
+            
             # Display chatbot response
             st.markdown(f"<p style='background-color:#E3F2FD; color:#0D47A1; padding:10px; border-radius:10px;'>Chatbot: {response}</p>", unsafe_allow_html=True)
 
