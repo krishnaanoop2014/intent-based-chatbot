@@ -3403,11 +3403,11 @@ def chatbot(input_text):
    
     if intent['tag'] == tag:  # Indented correctly
         response = random.choice(intent['responses'])
-        if emotion == "Positive":
+            if emotion == "Positive":
             return f"😊 {response} (Detected Emotion: {emotion})"
-        elif emotion == "Negative":
+            elif emotion == "Negative":
             return f"😟 {response} (Detected Emotion: {emotion})"
-        else:
+            else:
             return f"😐 {response} (Detected Emotion: {emotion})"
 return "🤔 I'm not sure how to respond to that. (Emotion: Neutral)"
 
